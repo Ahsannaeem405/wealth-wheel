@@ -301,6 +301,7 @@ class UserController extends Controller
 
     public function wihdraw_submit(Request $request)
     {
+       
         
         if($request->pay == 1)
         {
@@ -331,11 +332,9 @@ class UserController extends Controller
             $withdraw->paypal_email = $request->paypal_email;
             $withdraw->save();
 
-            $withdrawals = Withdraw::all()->count();
-        // dd($withdrawals);
- 
+            $withdrawal_num = Withdraw::where('user_id', auth()->user()->id)->count();
+            $withdrawals = auth()->user()->name."-0$withdrawal_num";
             $arr = [ 'withdraw' => $request->withdraw, 'user_name' => auth()->user()->name, 'paypal_email' => $request->paypal_email, 'withdrawals' => $withdrawals];
-
             \Notification::route('mail', 'withdrawals@wealth-wheel.com')->notify(new WithdrawRequest($arr));
 
         }
