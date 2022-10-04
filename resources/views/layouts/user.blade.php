@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  
+  <meta name="csrf-token" content="{{ csrf_token() }}" />
 
   <title>Wealth Wheel - Index</title>
   <meta content="" name="description">
@@ -224,6 +224,7 @@ body {
           <li><a class="nav-link scrollto {{ Request::is('how_it_works')? 'active' : '' }} " href="{{ route('how_it_works') }} ">How it Works</a></li>
           <li><a class="nav-link scrollto {{ Request::is('availabe_wealth_wheel')? 'active' : '' }} " href="{{ route('availabe_wealth_wheel') }}">Available Wealth Wheels</a></li>
           <li><a class="nav-link scrollto {{ Request::is('contact')? 'active' : '' }} " href="{{ route('contact') }} ">Contact Us</a></li>
+          @auth
           <li><a class="nav-link scrollto {{ Request::is('my_wheels')? 'active' : '' }}" href="{{ url('my_wheels') }}">My Account</a></li>
           <li><a class="nav-link scrollto">${{auth()->user()->balance}}</a></li>
           {{-- <li><a class="nav-link scrollto">${{auth()->user()->balance}}</a></li> --}}
@@ -240,6 +241,7 @@ body {
               </form >  
             </div>
           </div>
+          @endauth
         </ul>
         {{-- <ul class="nav navbar-nav float-right"> --}}
 
