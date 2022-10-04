@@ -8,7 +8,7 @@
       <!-- Slide 1 -->
       <div class="carousel-item active">
         <div class="carousel-container carousel-container-home">
-          <h2 class="animate__animated animate__fadeInDown">Welcome to sdsdsd<span>Wealth Wheel</span></h2>
+          <h2 class="animate__animated animate__fadeInDown">Welcome to <span>Wealth Wheel</span></h2>
             <p class="animate__animated fanimate__adeInUp">Wealth Wheel is a the continuous income-generator platform providing people 
             with 10% profits on their entries, giving them the simplest way of generating 
             additional income ever.</p>
