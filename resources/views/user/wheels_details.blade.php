@@ -292,7 +292,7 @@
                                         <div class="container">
                                             <div class="modal-body">
 
-                                                <div class="row">
+                                                <div class="row" style="justify-content: center;">
                                                     <div class="col-3">
                                                         <div class="row col-8">
                                                             {{-- <button  type="button" class="btn btn-primary">Pay from Wallet</button> --}}
@@ -354,8 +354,8 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="vl col-1 ml-4"></div>
-                                                    <div class="col-3">
+                                                    <div class="vl col-1 ml-4 d-none"></div>
+                                                    <div class="col-3 d-none">
                                                         <div class="row col-8">
                                                             {{-- <button  type="button" class="btn btn-primary">Pay from Wallet</button> --}}
                                                             <a class="cardpay">

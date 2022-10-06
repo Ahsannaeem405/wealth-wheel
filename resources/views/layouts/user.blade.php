@@ -355,118 +355,118 @@ body {
   <!-- deposit model -->
 
   <div class="modal fade" id="paymentmodel" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-    aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content" style="border-radius: 45px; margin-top: 123px;">
-        
+  aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+      <div class="modal-content" style="border-radius: 45px; margin-top: 123px;">
+      
 
-            <div class="site_colr" style=" border-radius: 42px 42px 0px 0px;">
-                <h5 class="modal-title" id="staticBackdropLabel"style="text-align: center;padding-top: 15px;padding-bottom: 15px;">Payment</h5>
-                
-                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close" style="margin-top: -40px;margin-right: 16px;"><i class="fa fa-close"></i></button>
-                
-            </div>
-            <div class="modal-body">
-                    <div class="row" style="justify-content:  center;">
+          <div class="site_colr" style=" border-radius: 42px 42px 0px 0px;">
+              <h5 class="modal-title" id="staticBackdropLabel"style="text-align: center;padding-top: 15px;padding-bottom: 15px;">Payment</h5>
+              
+              <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close" style="margin-top: -40px;margin-right: 16px;"><i class="fa fa-close"></i></button>
+              
+          </div>
+          <div class="modal-body">
+                  <div class="row" style="justify-content:  center;">
 
-                        <div class="col-6"  style="text-align: center; margin-bottom:10px;">
-                            <div class="form-group" style="text-align: left;">
-                              <label for="">Enter Amount:</label>
-                              <div class="input-group" >
+                      <div class="col-6"  style="text-align: center; margin-bottom:10px;">
+                          <div class="form-group" style="text-align: left;">
+                            <label for="">Enter Amount:</label>
+                            <div class="input-group" >
 
-                                <span class="input-group-text">US$</span>
-                                <input type="number" name="amount" placeholder="Enter Amount To Deposit" class=" form-control checkamount" onkeyup="this.value=this.value.replace(/[^0-9]/g)" >
+                              <span class="input-group-text">US$</span>
+                              <input type="number" name="amount" placeholder="Enter Amount To Deposit" class=" form-control checkamount" onkeyup="this.value=this.value.replace(/[^0-9]/g)" >
 
-                              </div>
-                              
-                          </div>
-                            <input type="radio" name="pay" id="vcard" value="1" class="paymentmode"><label for="vcard" style="margin-right: 33px;">Pay with Card</label>
-                            <input type="radio" name="pay" id="payypal"  value="2" class="paymentmode"><label for="payypal">Pay with PayPal</label>
-                        </div>
-
-                        <div class="col-md-10 col-md-offset-3 stripe_div d-none">
-                            <div class="panel panel-default credit-card-box">
-                                <div class="panel-body">
-                                    <form role="form" action="{{url('/deposit_balance')}}" method="post"
-                                        class="require-validation" data-cc-on-file="false"
-                                        data-stripe-publishable-key="{{ env('STRIPE_KEY','pk_test_51Kh9uAFBFsCMdULhjZvuXtEvn03Dc8oBpZS9VEZf3ZEym3JBm6F8owLE8nzc4o1p7tT2FSqyYjyrpPKgBmU3f4lC00yFeVGFJa') }}" id="payment-form">
-                                        @csrf
-
-                                        <input type="hidden" name="amount" class="amount">
-
-                                        <div class='form-row row mt-2'>
-                                            <div class='col-xs-12 form-group required'>
-                                                <label class='control-label'>Name on Card</label> <input
-                                                    class='form-control' size='4' type='text'>
-                                            </div>
-                                        </div>
-
-                                        <div class='form-row row mt-2'>
-                                            <div class='col-xs-12 form-group required'>
-                                                <label class='control-label'>Card Number</label> <input
-                                                    autocomplete='off' class='form-control card-number' size='20'
-                                                    type='text'>
-                                            </div>
-                                        </div>
-
-                                        <div class='form-row row mt-2'>
-                                            <div class='col-xs-12 col-md-4 form-group cvc required'>
-                                                <label class='control-label'>CVC</label> <input autocomplete='off'
-                                                    class='form-control card-cvc' placeholder='ex. 311' size='4'
-                                                    type='text'>
-                                            </div>
-                                            <div class='col-xs-12 col-md-4 form-group expiration required'>
-                                                <label class='control-label'>Expiration Month</label> <input
-                                                    class='form-control card-expiry-month' placeholder='MM' size='2'
-                                                    type='text'>
-                                            </div>
-                                            <div class='col-xs-12 col-md-4 form-group expiration required'>
-                                                <label class='control-label'>Expiration Year</label> <input
-                                                    class='form-control card-expiry-year' placeholder='YYYY' size='4'
-                                                    type='text'>
-                                            </div>
-                                        </div>
-
-                                        <div class='form-row row mt-2'>
-                                            <div class='col-md-12 error form-group hide'>
-                                                <div class='alert-danger alert'>Please correct the errors and try
-                                                    again.</div>
-                                            </div>
-                                        </div>
-
-                                        <div class="row mt-4">
-                                            <div class="col-12 d-flex" style="justify-content: space-between;">
-                                                <button class="col-5 btn btn-primary site_colr" type="submit">Pay Now
-                                                    </button>
-                                                <button type="button" class="col-5 btn btn-secondary " data-bs-dismiss="modal" aria-label="Close">Cancel</button>
-                                            </div>
-                                        </div>
-
-                                    </form>
-                                </div>
                             </div>
+                            
                         </div>
-                        <div class="paypal_div d-none">
+                          <input type="radio" name="pay" id="vcard" value="1" class="paymentmode d-none"><label for="" style="margin-right: 33px;display:none">Pay with Card</label>
+                          <input type="radio" name="pay" id="payypal"  value="2" class="paymentmode"><label for="payypal">Pay with PayPal</label>
+                      </div>
 
-                            <form action="{{ url('/paypal_deposit_balance') }}" method="post">
-                                <input type="hidden" class="amount" name="amount" />
-                                {{ csrf_field() }}
-                                <div class="row" style="justify-content: center;">
-                                  <div class="col-md-10 col-md-offset-3">
-                                    <div class="row mt-4">
-                                      <div class="col-12 d-flex" style="justify-content: space-between;">
-                                        <input type="submit" name="submit" class=" col-5 btn btn-primary site_colr" value="Pay Now">
-                                        <button type="button" class="col-5 btn btn-secondary " data-bs-dismiss="modal" aria-label="Close">Cancel</button>
+                      <div class="col-md-10 col-md-offset-3 stripe_div d-none">
+                          <div class="panel panel-default credit-card-box">
+                              <div class="panel-body">
+                                  <form role="form" action="{{url('/deposit_balance')}}" method="post"
+                                      class="require-validation" data-cc-on-file="false"
+                                      data-stripe-publishable-key="{{ env('STRIPE_KEY','pk_test_51Kh9uAFBFsCMdULhjZvuXtEvn03Dc8oBpZS9VEZf3ZEym3JBm6F8owLE8nzc4o1p7tT2FSqyYjyrpPKgBmU3f4lC00yFeVGFJa') }}" id="payment-form">
+                                      @csrf
+
+                                      <input type="hidden" name="amount" class="amount">
+
+                                      <div class='form-row row mt-2'>
+                                          <div class='col-xs-12 form-group required'>
+                                              <label class='control-label'>Name on Card</label> <input
+                                                  class='form-control' size='4' type='text'>
+                                          </div>
                                       </div>
+
+                                      <div class='form-row row mt-2'>
+                                          <div class='col-xs-12 form-group required'>
+                                              <label class='control-label'>Card Number</label> <input
+                                                  autocomplete='off' class='form-control card-number' size='20'
+                                                  type='text'>
+                                          </div>
+                                      </div>
+
+                                      <div class='form-row row mt-2'>
+                                          <div class='col-xs-12 col-md-4 form-group cvc required'>
+                                              <label class='control-label'>CVC</label> <input autocomplete='off'
+                                                  class='form-control card-cvc' placeholder='ex. 311' size='4'
+                                                  type='text'>
+                                          </div>
+                                          <div class='col-xs-12 col-md-4 form-group expiration required'>
+                                              <label class='control-label'>Expiration Month</label> <input
+                                                  class='form-control card-expiry-month' placeholder='MM' size='2'
+                                                  type='text'>
+                                          </div>
+                                          <div class='col-xs-12 col-md-4 form-group expiration required'>
+                                              <label class='control-label'>Expiration Year</label> <input
+                                                  class='form-control card-expiry-year' placeholder='YYYY' size='4'
+                                                  type='text'>
+                                          </div>
+                                      </div>
+
+                                      <div class='form-row row mt-2'>
+                                          <div class='col-md-12 error form-group hide'>
+                                              <div class='alert-danger alert'>Please correct the errors and try
+                                                  again.</div>
+                                          </div>
+                                      </div>
+
+                                      <div class="row mt-4">
+                                          <div class="col-12 d-flex" style="justify-content: space-between;">
+                                              <button class="col-5 btn btn-primary site_colr" type="submit">Pay Now
+                                                  </button>
+                                              <button type="button" class="col-5 btn btn-secondary " data-bs-dismiss="modal" aria-label="Close">Cancel</button>
+                                          </div>
+                                      </div>
+
+                                  </form>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="paypal_div d-none">
+
+                          <form action="{{ url('/paypal_deposit_balance') }}" method="post">
+                              <input type="hidden" class="amount" name="amount" />
+                              {{ csrf_field() }}
+                              <div class="row" style="justify-content: center;">
+                                <div class="col-md-10 col-md-offset-3">
+                                  <div class="row mt-4">
+                                    <div class="col-12 d-flex" style="justify-content: space-between;">
+                                      <input type="submit" name="submit" class=" col-5 btn btn-primary site_colr" value="Pay Now">
+                                      <button type="button" class="col-5 btn btn-secondary " data-bs-dismiss="modal" aria-label="Close">Cancel</button>
                                     </div>
                                   </div>
                                 </div>
-                            </form>
-                        </div>
-                    </div>
-            </div>
-        </div>
-    </div>
+                              </div>
+                          </form>
+                      </div>
+                  </div>
+          </div>
+      </div>
+  </div>
 </div>
 
 
