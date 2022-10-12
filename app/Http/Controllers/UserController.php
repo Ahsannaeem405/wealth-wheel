@@ -302,55 +302,61 @@ class UserController extends Controller
     public function wihdraw_submit(Request $request)
     {
        
+        if($request->paypal_email != null)
+        {
+            if($request->pay == 1)
+            {
+                $request->validate([
+                    'bank_name' => ['required'],
+                    'account_title' => ['required'],
+                    'account_number' => ['required'],
+                ]);
+
+                $withdraw = new Withdraw;
+                $withdraw->user_id = auth()->user()->id;
+                $withdraw->withdraw = $request->withdraw;
+                $withdraw->type = $request->withdraw_type;
+                $withdraw->bank_name = $request->bank_name;
+                $withdraw->account_title = $request->account_title;
+                $withdraw->account_number = $request->account_number;
+                $withdraw->save();
+
+
+            }else{
+                
+                
+                $withdraw = new Withdraw;
+                $withdraw->user_id = auth()->user()->id;
+                $withdraw->withdraw = $request->withdraw;
+                $withdraw->type = $request->withdraw_type;
+                $withdraw->paypal_email = $request->paypal_email;
+                $withdraw->save();
+
+                $withdrawal_num = Withdraw::where('user_id', auth()->user()->id)->count();
+                $withdrawals = auth()->user()->name."-0$withdrawal_num";
+                $arr = [ 'withdraw' => $request->withdraw, 'user_name' => auth()->user()->name, 'paypal_email' => $request->paypal_email, 'withdrawals' => $withdrawals];
+                \Notification::route('mail', 'withdrawals@wealth-wheel.com')->notify(new WithdrawRequest($arr));
+
+            }
+            if($request->typee == 'balance')
+            {
+                $us = DB::table('users')
+                ->where('id', auth()->user()->id)
+                ->decrement('balance', $request->withdraw);
+
+            }else{
+                $us = DB::table('user_wallets')
+                ->where('id', $request->wellet_id)
+                ->decrement('amount', $request->withdraw);
+            }
+
+            return redirect()->back()->with('success', 'Withdrawal Requested Successfully!');
+
+        }else{
+            return back()->with('error', 'The PayPal Email Field Is Required.');
+
+        }
         
-        if($request->pay == 1)
-        {
-            $request->validate([
-                'bank_name' => ['required'],
-                'account_title' => ['required'],
-                'account_number' => ['required'],
-            ]);
-
-            $withdraw = new Withdraw;
-            $withdraw->user_id = auth()->user()->id;
-            $withdraw->withdraw = $request->withdraw;
-            $withdraw->type = $request->withdraw_type;
-            $withdraw->bank_name = $request->bank_name;
-            $withdraw->account_title = $request->account_title;
-            $withdraw->account_number = $request->account_number;
-            $withdraw->save();
-
-
-        }else{
-            $request->validate([
-                'paypal_email' => ['required'],
-            ]);
-            $withdraw = new Withdraw;
-            $withdraw->user_id = auth()->user()->id;
-            $withdraw->withdraw = $request->withdraw;
-            $withdraw->type = $request->withdraw_type;
-            $withdraw->paypal_email = $request->paypal_email;
-            $withdraw->save();
-
-            $withdrawal_num = Withdraw::where('user_id', auth()->user()->id)->count();
-            $withdrawals = auth()->user()->name."-0$withdrawal_num";
-            $arr = [ 'withdraw' => $request->withdraw, 'user_name' => auth()->user()->name, 'paypal_email' => $request->paypal_email, 'withdrawals' => $withdrawals];
-            \Notification::route('mail', 'withdrawals@wealth-wheel.com')->notify(new WithdrawRequest($arr));
-
-        }
-        if($request->typee == 'balance')
-        {
-            $us = DB::table('users')
-            ->where('id', auth()->user()->id)
-            ->decrement('balance', $request->withdraw);
-
-        }else{
-            $us = DB::table('user_wallets')
-            ->where('id', $request->wellet_id)
-            ->decrement('amount', $request->withdraw);
-        }
-
-        return redirect()->back()->with('success', 'Withdrawal Requested Successfully!');
 
     }
 
@@ -364,7 +370,6 @@ class UserController extends Controller
             'message' => 'required',
             'g-recaptcha-response' => ['required', new Recaptcha()],
         ]);
-        dd($request);
 
   
         ContactUs::create($request->all());
@@ -423,6 +428,6 @@ class UserController extends Controller
                 $usr->notify(new WealthWheelClose($arr));
             }
 
-        return back()->with('success', 'Wheel Close Successfully');
+        return back()->with('success', 'Wheel Closed Successfully');
     }
 }

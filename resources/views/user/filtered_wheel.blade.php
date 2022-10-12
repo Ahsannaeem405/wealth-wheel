@@ -2,7 +2,7 @@
     <div class="ww-avl-card col-md-4 my-2">
         <div class="card">
             <div  class="ww-card-tag">
-            <span>Available Now</span>
+            <span style="margin-left: 12px;">Available</span>
             </div>
         
             <img style="height: 250px; width:310px"  src="{{ asset('assets/img/ww-pic.png') }}" alt="no img" class="img-fluid">

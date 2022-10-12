@@ -170,7 +170,7 @@
                                     <div class="card">
                                         <div class="ww-card-tag">
                                         @if($wheel->available == 'available')
-                                            <span>Available Now</span>
+                                            <span style="margin-left: 12px;">Available</span>
                                         @else
                                             <span style="background: red;">Unavailable</span>
                                         @endif
@@ -225,7 +225,7 @@
             <div class="row">
                 <div class="col-12 mt-4 form-group">
                     <label for="">Username</label>
-                    <input required type="text" class="form-control" name="name" placeholder="Enter Your Name" value="{{auth()->user()->name}}">
+                    <input readonly required type="text" class="form-control" name="name" placeholder="Enter Your Name" value="{{auth()->user()->name}}">
                 </div>
 
                 <div class="col-12 mt-4 form-group">

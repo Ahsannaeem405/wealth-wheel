@@ -63,7 +63,7 @@
                 <div class="card">
                   <div  class="ww-card-tag">
                   @if($wheel->available == 'available')
-                      <span>Available Now</span>
+                      <span style="margin-left: 12px;">Available</span>
                   @else
                       <span style="background: red;">Unavailable</span>
                   @endif
@@ -148,7 +148,7 @@ $('#Searchbtn').on('click', function(){
 
    var text = $('#txtSearch').val();
 
-    $.ajax({
+    $.ajax({¬
         type:"POST",
         url: '{{url('wheels_filter_form')}}',
         data: {text: $('#txtSearch').val()},

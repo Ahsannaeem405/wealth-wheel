@@ -212,14 +212,14 @@
                             </div>
                             <div class="ww-pro-price my-4">
                                 <h4>Cog Price :US${{ $wheel_details->cog_price }} </h4>
-                                <div class="ww-pro-price my-4">
+                                {{-- <div class="ww-pro-price my-4">
                                     @if ($wheel_details->user_id == auth()->user()->id)
 
                                         <!-- @if (isset($user_balance)) -->
                                             <h6>Wallet Balance : <b>US${{ $wallet_balance }}</b></h6>
                                         <!-- @endif -->
                                     @endif
-                                </div>
+                                </div> --}}
                             </div>
                                         <!-- <div class="ww-pro-quantity my-4">
                                     <div id="ww-quantity">
