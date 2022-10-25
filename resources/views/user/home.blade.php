@@ -9,31 +9,42 @@
       <div class="carousel-item active">
         <div class="carousel-container carousel-container-home">
           <h2 class="animate__animated animate__fadeInDown">Welcome to <span>Wealth Wheel</span></h2>
-            <p class="animate__animated fanimate__adeInUp">Wealth Wheel is a the continuous income-generator platform providing people 
-            with 10% profits on their entries, giving them the simplest way of generating 
-            additional income ever.</p>
+            <p class="animate__animated fanimate__adeInUp">Wealth Wheel is a the continuous income generator platform that gives every
+user 10% profit on their entries, giving them the simplest way of accumulating 
+additional income ever.</p>
             <p>
-              By simply purchasing a ‘Cog’ within any chosen Wealth Wheel, as more Cogs are 
-              purchased, the earlier users receive 110% of the wheel’s cog value (ie they 
-              receive their initial cog payment back PLUS an additional 10%).
+              The concept is of a wheel and the cogs within it. By simply purchasing a ‘Cog’ 
+withn any chosen Wealth Wheel, as more cogs are purchased, the earlier users 
+receive 110% of the wheel’s cog value, (ie, they receive their initial cog payment
+back PLUS an additional 10%.
             </p>
             <p>
               In these challenging global economic times, there has never been a simpler, 
-              effortless model of finance generation available to anyone, and at any level they 
-              choose, from small to large profits.
+more effortless model of additional income generation available to anyone, and 
+at any level they choose, from small to large profits.
             </p>
           <div class="d-flex ww-banner-btn">
-          
+          <!-- @guest
+          @if (Route::has('login'))
+          <li class="nav-link ww-register"><a class="nav-link" href=" {{ route ('register') }}">Signup</a></li>
+          @endif
+          @if (Route::has('login'))
+          <li class="nav-link ww-register"><a class="nav-link" href=" {{ route ('login') }}">Login</a></li>
+          @endif
+          @else
+          <li class="nav-link ww-register"><a class="nav-link" href=" {{ route ('logout') }}">logout</a></li>
+
+          @endguest -->
 
           @guest
-            @if (Route::has('login'))
-            <a href="{{ route ('register') }}" class="btn-get-started animate__animated animate__fadeInUp scrollto">Sign Up</a>
-            @endif
-            @if (Route::has('login'))
-            <a href="{{ route ('login') }}" class="btn-get-started animate__animated animate__fadeInUp scrollto">Login</a>
-            @endif
+          @if (Route::has('login'))
+          <a href="{{ route ('register') }}" class="btn-get-started animate__animated animate__fadeInUp scrollto">Sign Up</a>
+          @endif
+          @if (Route::has('login'))
+          <a href="{{ route ('login') }}" class="btn-get-started animate__animated animate__fadeInUp scrollto">Login</a>
+          @endif
           @else
-            <a href="{{ route ('logout') }}" class="btn-get-started animate__animated animate__fadeInUp scrollto">Logout</a>
+          <a href="{{ route ('logout') }}" class="btn-get-started animate__animated animate__fadeInUp scrollto">Logout</a>
           @endguest
           <a href="{{ route ('wealth_wheel') }}" class="btn-get-started animate__animated animate__fadeInUp scrollto">Create Wealth Wheel</a>
 
@@ -103,31 +114,31 @@
             <div class="we-wrok-steps">
               <h3>Create An Account</h3>
               <p>Wealth Wheel is open to anybody to create an account, immediately join any 
-                wheels or create wheels of their own, view/track any cogs that have been 
-                purchased, and withdraw your profits.</p>
+wheels or create wheels of their own, view/track any cogs that have been 
+purchased, and withdraw your payouts.</p>
             </div>
           </div>
           <div class="col-lg-3 col-md-6 px-lg-0">
             <div class="we-wrok-steps">
               <h3>Create A Wealth Wheel</h3>
-              <p>To create a Wealth Wheel, after setting the Cog Price it is immediately available 
-                  for anybody to join.</p>
+              <p>After simply choosing the Cog Price for your wheel, it is immediately available for
+anybody to join.</p>
             </div>
           </div>
           <div class="col-lg-3 col-md-6 px-lg-0">
             <div class="we-wrok-steps">
               <h3>Purchase Cogs</h3>
               <p>There is no limit to how many cogs you can purchase, and any Wealth Wheel is 
-                Available to join and receive profit from.</p>
+avaialbe to join and receive profit from.</p>
             </div>
           </div>
 
           <div class="col-lg-3 col-md-6 px-lg-0">
             <div class="we-wrok-steps">
               <h3>Invite Others</h3>
-              <p>Whether you’re a Wealth Wheel owner or have joined a wheel, invite others to 
-                join your wheels and also generate profits with you. The more cogs that join a 
-                wheel, the quicker the wheel spins, and the faster profits are generated.</p>
+              <p>Whether you have created a Wealth Wheel or have joined a wheel, invite others 
+to join your wheels and also generate profits with you. The more cogs that join a 
+wheel, the quicker the wheel payouts are sent.</p>
             </div>
           </div>
         </div>

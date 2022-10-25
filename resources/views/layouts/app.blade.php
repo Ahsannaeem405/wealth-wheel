@@ -126,9 +126,9 @@
         <div class="col-lg-3 col-md-3">
           <h3>FOLLOW US</h3>
           <div class="social-links my-4">
-            <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-            <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-            <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+            <a target="_blank" href="https://twitter.com/WealthWheel" class="twitter"><i class="bx bxl-twitter"></i></a>
+            <a target="_blank" href="https://www.facebook.com/wealthwheels/" class="facebook"><i class="bx bxl-facebook"></i></a>
+            <a target="_blank" href="https://www.instagram.com/wealthwheel_" class="instagram"><i class="bx bxl-instagram"></i></a>
           </div>
         </div>
         </div>

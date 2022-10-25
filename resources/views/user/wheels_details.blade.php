@@ -272,7 +272,7 @@
                     <div class="site_colr" style=" border-radius: 42px 42px 0px 0px;">
                         <h5 class="modal-title"
                             id="staticBackdropLabel"style="text-align: center;padding-top: 15px;padding-bottom: 15px;">
-                            Select Payment Method</h5>
+                            Payment Method</h5>
 
                     </div>
                     <div class="modal-body">
@@ -293,31 +293,31 @@
                                             <div class="modal-body">
 
                                                 <div class="row" style="justify-content: center;">
-                                                    <div class="col-3">
-                                                        <div class="row col-8">
-                                                            {{-- <button  type="button" class="btn btn-primary">Pay from Wallet</button> --}}
-                                                            <form id="payment_from_wallet_form" role="form"
-                                                                action="{{ url('pay_from_wallet') }}" method="post">
-                                                                @csrf
-                                                                <input class="append_price" type="hidden"
-                                                                    name="amount">
-                                                                <input type="hidden" value="{{ $wheel_details->id }}"
-                                                                    name="wheel_id">
-                                                                <a class="payment_from_wallet">
-                                                                    <img alt="Qries" style="cursor: pointer;"
-                                                                        src="{{ URL::asset('/assets/img/wallet.png') }}"
-                                                                        width="100" height="100">
-                                                                </a>
-                                                            </form>
+                                                    <!--<div class="col-3">-->
+                                                    <!--    <div class="row col-8">-->
+                                                    <!--        {{-- <button  type="button" class="btn btn-primary">Pay from Wallet</button> --}}-->
+                                                    <!--        <form id="payment_from_wallet_form" role="form"-->
+                                                    <!--            action="{{ url('pay_from_wallet') }}" method="post">-->
+                                                    <!--            @csrf-->
+                                                    <!--            <input class="append_price" type="hidden"-->
+                                                    <!--                name="amount">-->
+                                                    <!--            <input type="hidden" value="{{ $wheel_details->id }}"-->
+                                                    <!--                name="wheel_id">-->
+                                                    <!--            <a class="payment_from_wallet">-->
+                                                    <!--                <img alt="Qries" style="cursor: pointer;"-->
+                                                    <!--                    src="{{ URL::asset('/assets/img/wallet.png') }}"-->
+                                                    <!--                    width="100" height="100">-->
+                                                    <!--            </a>-->
+                                                    <!--        </form>-->
 
 
-                                                        </div>
-                                                        <div class="row text-center">
-                                                            <div class="col-12"><b style="color: #3dc1eb">Pay From
-                                                                    Wallet</b>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                                    <!--    </div>-->
+                                                    <!--    <div class="row text-center">-->
+                                                    <!--        <div class="col-12"><b style="color: #3dc1eb">Pay From-->
+                                                    <!--                Wallet</b>-->
+                                                    <!--        </div>-->
+                                                    <!--    </div>-->
+                                                    <!--</div>-->
 
                                                     <style>
                                                         .vl {
@@ -326,7 +326,7 @@
                                                         }
                                                     </style>
 
-                                                    <div class="vl col-1"></div>
+                                                    <!--<div class="vl col-1"></div>-->
 
                                                     <div class="col-3">
                                                         <div class="row col-8">
