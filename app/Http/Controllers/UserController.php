@@ -13,17 +13,18 @@ use Illuminate\Http\Request;
 use App\Notifications\PurchaseCogNotification;
 use App\Notifications\WealthWheelClose;
 use App\Notifications\WithdrawRequest;
-use Mail;
+use Illuminate\Support\Facades\Mail;
 use App\Rules\Recaptcha;
 use App\Models\ContactUs;
 use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
 use Carbon\Carbon; 
 
 
-use Hash;
+
 use Illuminate\Support\Str;
 
-use DB;
 use Stripe;
 use Illuminate\Support\Facades\Auth;
 
@@ -62,6 +63,7 @@ class UserController extends Controller
 
     public function contact()
     {
+        
         return view('user.contact');
     }
     public function how_it_works()
@@ -370,8 +372,13 @@ class UserController extends Controller
             'message' => 'required',
             'g-recaptcha-response' => ['required', new Recaptcha()],
         ]);
-
-  
+        $data = [
+            'name' => $request->name,
+            'email' => $request->email,
+            'subject' => $request->subject,
+            'message' => $request->message,
+        ];
+        Mail::to($request->email)->send(new \App\Mail\ContactMail($data));
         ContactUs::create($request->all());
         return redirect()->back()->with(['success' => 'Thank you for contacting us. We will contact you shortly.']);
     }

@@ -29,7 +29,6 @@ class ContactMail extends Mailable
      */
     public function build()
     {
-        return $this->subject('Contact US - '. $this->data->subject)
-                    ->view('email.contact_us');
+        return $this->subject('Wealth Wheel Contact-Us Request')->view('email.contact_us');
     }
 }
